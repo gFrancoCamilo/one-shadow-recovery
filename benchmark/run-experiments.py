@@ -22,7 +22,7 @@ def run_experiment(a_value, experiment_num, num_nodes=31, log_dir='logs', experi
     
     print(f"Running experiment with fab localmal for a = {a_value} (experiment {experiment_num})...")
     try:
-        subprocess.run(['fab', 'remotemal'], check=True)
+        subprocess.run(['fab', 'localmal'], check=True)
     except subprocess.CalledProcessError as e:
         print(f"Error running fab localmal for a = {a_value} (experiment {experiment_num}): {e}")
         return
