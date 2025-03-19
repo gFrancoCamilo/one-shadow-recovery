@@ -9,7 +9,7 @@ In particular, this repository implements our recovery protocol in an excessive 
 
 Before you start, make sure you have the following installed:
 
-- Python 3.6+
+- Python 3.10
 - Rust and Cargo
 - Clang
 - Tmux
@@ -18,7 +18,7 @@ In Ubuntu 22.04, you can install the prerequisites by running:
 
 ```bash
 sudo apt update
-sudo apt-get install -y python3 tmux clang
+sudo apt-get install -y python3 tmux clang curl git python3-pip python-is-python3
 curl https://sh.rustup.rs -sSf | sh
 ```
 
