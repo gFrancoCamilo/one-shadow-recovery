@@ -17,11 +17,11 @@ def localmal(ctx):
         'nodes': 31,
         'rate': 10_000,
         'tx_size': 512,
-        'duration': 150,
+        'duration': 300,
     }
     node_params = {
         'consensus': {
-            'timeout_delay': 1_000,
+            'timeout_delay': 3_000,
             'sync_retry_delay': 10_000,
         },
         'mempool': {
@@ -34,11 +34,12 @@ def localmal(ctx):
     }
     network_parameters_filepath = './benchmark/.network_params.json'
     dns_filepath = './benchmark/.dns.json'
-    try:
-        ret = LocalMalBench(bench_params, node_params, network_parameters_filepath, dns_filepath).run(debug=True).result()
-        print(ret)
-    except BenchError as e:
-        Print.error(e)
+    LocalMalBench(bench_params, node_params, network_parameters_filepath, dns_filepath).run(debug=True)
+    #try:
+    #    ret = LocalMalBench(bench_params, node_params, network_parameters_filepath, dns_filepath).run(debug=True).result()
+    #    print(ret)
+    #except BenchError as e:
+    #    Print.error(e)
 
 
 
