@@ -27,7 +27,18 @@ Make sure that `cargo` is in your `$PATH` after installation:
 ```bash
 source $HOME/.cargo/env
 ```
+In case Ubuntu 22.04 is not available, we recommend using Podman or Docker to set up an Ubuntu 22.04 container. You can check how to install Podman [here](https://podman.io). After installing it, run the following commands individually on the command line:
 
+```bash
+podman pull docker://ubuntu:22.04
+podman run -it ubuntu:22.04 /bin/bash
+apt update
+apt-get install -y python3 tmux clang python-is-python3 curl python3-pip git
+curl https://sh.rustup.rs -sSf | sh
+source $HOME/.cargo/env
+```
+
+We also recommend using a machine with at least one core per node/client (if running locally), 16 GB of RAM, and at least 30 GB of NVMe SSD.
 ## Running the Codebase (locally)
 
 ### Step 1: Set up the environment
@@ -68,6 +79,7 @@ Open fabfile.py and modify the parameters as needed.
 ### Step 3: Run the Protocol
 Once you've configured fabfile.py, you can run the protocol locally using Fabric. To do so, execute the following command:
 
+⚠️ **Executing the code will kill all tmux sessions**
 ```bash
 fab localmal
 ```
